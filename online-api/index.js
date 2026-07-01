@@ -27,7 +27,7 @@ app.get("/ping", (req, res) => {
 
     users[user] = Date.now();
 
-    res.send("OK");
+    res.send("pasol nahui at suda");
 });
 
 app.get("/online", (req, res) => {
@@ -55,5 +55,5 @@ setInterval(() => {
 }, 30000);
 
 app.listen(PORT, () => {
-    console.log("API running");
+    console.log("karose pusk w robotait");
 });
