@@ -3,61 +3,57 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-// 🔐 API KEYS (сюда добавляешь свои ключи)
 const API_KEYS = new Set([
     "KEY-123",
-    "KEY-456",
-    "YOUR-SECRET-KEY"
+    "KEY-456"
 ]);
 
-// 📊 активные пользователи
-const users = {}; // key -> lastSeen
+// userId -> lastSeen
+const users = {};
 
-// 🔒 проверка ключа
-function isValidKey(key) {
+function validKey(key) {
     return API_KEYS.has(key);
 }
 
-// 📡 heartbeat (ping)
 app.get("/ping", (req, res) => {
     const key = req.query.key;
+    const user = req.query.user;
 
-    if (!key || !isValidKey(key)) {
-        return res.status(403).send("Invalid API key");
-    }
+    if (!validKey(key))
+        return res.status(403).send("Invalid API Key");
 
-    users[key] = Date.now();
-    res.send("pong");
+    if (!user)
+        return res.status(400).send("Missing user");
+
+    users[user] = Date.now();
+
+    res.send("OK");
 });
 
-// 📊 онлайн пользователей
 app.get("/online", (req, res) => {
     const now = Date.now();
-    let count = 0;
 
-    for (const key in users) {
-        if (now - users[key] < 30000) {
-            count++;
-        }
+    let online = 0;
+
+    for (const id in users) {
+        if (now - users[id] < 30000)
+            online++;
     }
 
     res.json({
-        online: count
+        online
     });
 });
 
-// 🧹 очистка старых пользователей
 setInterval(() => {
     const now = Date.now();
 
-    for (const key in users) {
-        if (now - users[key] > 60000) {
-            delete users[key];
-        }
+    for (const id in users) {
+        if (now - users[id] > 60000)
+            delete users[id];
     }
 }, 30000);
 
-// 🚀 запуск сервера
 app.listen(PORT, () => {
-    console.log("API server running on port " + PORT);
+    console.log("API running");
 });
