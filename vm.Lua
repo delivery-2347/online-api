@@ -109,7 +109,7 @@ function OnlineWatermark.new(parent)
     -- Метод: установить "Online: N"
     function self:SetOnline(n)
         assert(typeof(n) == "number" or typeof(n) == "string", "SetOnline ожидал число или строку, а получил "..typeof(n))
-        self:SetText("Online: " .. tostring(n))
+        self:SetText("" .. tostring(n))
     end
 
     function self:Show()
