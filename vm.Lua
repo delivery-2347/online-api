@@ -15,10 +15,10 @@ OnlineWatermark.DefaultFont = Enum.Font.SourceSansSemibold
 OnlineWatermark.DefaultFontSize = 14
 OnlineWatermark.DefaultTextColor = Color3.new(1, 1, 1)                -- белый
 OnlineWatermark.DefaultBackgroundColor = Color3.fromRGB(30, 30, 30)  -- тёмно-серый фон
-OnlineWatermark.DefaultAccentColor = Color3.fromRGB(0, 170, 255)     -- акцент (синий)
+OnlineWatermark.DefaultAccentColor = Color3.fromRGB(120, 255, 120) -- светло-зелёный
 OnlineWatermark.DefaultPadding = 8
 OnlineWatermark.DefaultCornerRadius = UDim.new(0, 6)
-OnlineWatermark.DefaultStrokeThickness = 1
+OnlineWatermark.DefaultStrokeThickness = 0.75 -- чуть тоньше
 
 -- Вспомогательная функция: создаёт объект GUI с заданными свойствами
 local function createGuiObject(className, props)
@@ -46,6 +46,7 @@ function OnlineWatermark.new(parent)
         AnchorPoint = Vector2.new(0, 0),
         Position = UDim2.new(0, 10, 0, 10),  -- левый верхний угол с отступом (10,10)
         BackgroundColor3 = OnlineWatermark.DefaultBackgroundColor,
+        BackgroundTransparency = 1,
         Size = UDim2.new(0, 0, 0, 0),       -- начальная ширина 0, потом будет подгоняться
         ZIndex = 1,
         ClipsDescendants = true,
