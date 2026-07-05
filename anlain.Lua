@@ -26,6 +26,8 @@ obnova()
 local OnlineWatermark = loadstring(game:HttpGet("https://raw.githubusercontent.com/delivery-2347/online-api/refs/heads/main/vm.Lua"))()
 
 local wm = OnlineWatermark.new()
+getgenv().OnlineWM = wm
+
 wm:Show()
 wm:SetOnline(onlain)
 
