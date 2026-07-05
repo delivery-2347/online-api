@@ -38,6 +38,7 @@ function OnlineWatermark.new(parent)
     local playerGui = player and player:FindFirstChild("PlayerGui")
     local screenGui = Instance.new("ScreenGui")
     screenGui.Name = "OnlineWatermark"
+    screenGui.ResetOnSpawn = false
     screenGui.Parent = parent or playerGui
 
     -- Создаём фрейм Watermark
