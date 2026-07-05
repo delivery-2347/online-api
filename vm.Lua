@@ -2,6 +2,12 @@
 -- Модуль создания Watermark-панели (показывает "Online: X").
 -- Особенности: тёмный фон, скруглённые углы, тонкая обводка, изменение ширины по тексту, перетаскивание, методы API.
 
+if getgenv().OnlineWM then
+    pcall(function()
+        getgenv().OnlineWM:Destroy()
+    end)
+end
+
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
@@ -166,6 +172,8 @@ function OnlineWatermark.new(parent)
     local initSize = TextService:GetTextSize(label.Text, label.TextSize, label.Font, Vector2.new(math.huge, math.huge))
     frame.Size = UDim2.new(0, initSize.X + OnlineWatermark.DefaultPadding * 2,
                            0, initSize.Y + OnlineWatermark.DefaultPadding * 2)
+
+    getgenv().OnlineWM = self
 
     return self
 end
