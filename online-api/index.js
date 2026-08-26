@@ -8,14 +8,12 @@ const API_KEYS = new Set([
     "KEY-456"
 ]);
 
-// userId -> lastSeen
 const users = {};
 
 function validKey(key) {
     return API_KEYS.has(key);
 }
 
-// Общий стиль для всех HTML-страниц
 function page(content, title = "Сайт") {
     return `
 <!DOCTYPE html>
@@ -66,33 +64,23 @@ function page(content, title = "Сайт") {
 </body>
 </html>
     `;
-}
-
-
-// =========================
-// ГЛАВНАЯ СТРАНИЦА
-// =========================
+)
 
 app.get("/", (req, res) => {
     res.send(page(`
         <h1>Моя главная страница</h1>
 
-        <p>Привет!</p>
+        <p>Poka!</p>
 
         <p>
-            Здесь ты можешь написать всё, что хочешь.
+            Здесь ты можешь не написать всё, что хочешь.
         </p>
 
         <p>
-            Это обычная HTML-страница.
+            idi nahui
         </p>
-    `, "Главная"));
+    `, "не Главная"));
 });
-
-
-// =========================
-// PING API
-// =========================
 
 app.get("/ping", (req, res) => {
     const key = req.query.key;
@@ -115,11 +103,6 @@ app.get("/ping", (req, res) => {
     res.send("pasol nahui at suda");
 });
 
-
-// =========================
-// ONLINE API
-// =========================
-
 app.get("/online", (req, res) => {
     const now = Date.now();
 
@@ -136,11 +119,6 @@ app.get("/online", (req, res) => {
     });
 });
 
-
-// =========================
-// УДАЛЕНИЕ НЕАКТИВНЫХ
-// =========================
-
 setInterval(() => {
     const now = Date.now();
 
@@ -150,11 +128,6 @@ setInterval(() => {
         }
     }
 }, 30000);
-
-
-// =========================
-// ЗАПУСК СЕРВЕРА
-// =========================
 
 app.listen(PORT, () => {
     console.log("karose pusk w robotait");
