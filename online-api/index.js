@@ -79,8 +79,8 @@ function page(content, title = "Сайт") {
 
         setInterval(() => {
             document.title = titles[i];
-            i = (i + 0.1) % titles.length;
-        }, 1000);
+            i = (i + 1) % titles.length;
+        }, 200);
     </script>
 </body>
 </html>
