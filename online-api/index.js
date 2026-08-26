@@ -20,10 +20,10 @@ app.get("/ping", (req, res) => {
     const user = req.query.user;
 
     if (!validKey(key))
-        return res.status(403).send("Invalid API Key");
+        return res.status(403).send("Invalid API Key or PASOL NAHUI UEBAK");
 
     if (!user)
-        return res.status(400).send("Missing user");
+        return res.status(400).send("Missing user or PASOL NAHUI UEBAK");
 
     users[user] = Date.now();
 
