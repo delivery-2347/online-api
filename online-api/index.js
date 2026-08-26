@@ -89,18 +89,18 @@ function page(content, title = "Сайт") {
 
 app.get("/", (req, res) => {
     res.send(page(`
-        <h1>Моя главная страница</h1>
+        <h1>IDI NAHUI</h1>
 
-        <p>Poka!</p>
+        <p>idi!</p>
 
         <p>
-            Здесь ты можешь не написать всё, что хочешь.
+            nahui
         </p>
 
         <p>
             idi nahui
         </p>
-    `, "не Главная"));
+    `, "^_____^"));
 });
 
 app.get("/ping", (req, res) => {
