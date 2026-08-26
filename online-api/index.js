@@ -64,7 +64,7 @@ function page(content, title = "Сайт") {
 </body>
 </html>
     `;
-)
+}
 
 app.get("/", (req, res) => {
     res.send(page(`
