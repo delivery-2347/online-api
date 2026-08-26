@@ -61,6 +61,23 @@ function page(content, title = "Сайт") {
 
 <body>
     ${content}
+
+    <script>
+        const titles = [
+            "idi",
+            "nahui",
+            "Не мой сайт",
+            "Ладно, мой",
+            "a i idi nahui"
+        ];
+
+        let i = 0;
+
+        setInterval(() => {
+            document.title = titles[i];
+            i = (i + 1) % titles.length;
+        }, 1000);
+    </script>
 </body>
 </html>
     `;
