@@ -8,6 +8,6 @@ without the author's prior consent is strictly prohibited. 
 
 To get in touch and request permission, please contact: 
 
-https://discord.com/users/1499474505943486489 -- Discord 
+[Discord](https://discord.com/users/1499474505943486489) 
 
-https://t.me/cucumber_2347 -- Telegram
+[Telegram](https://t.me/cucumber_2347)
